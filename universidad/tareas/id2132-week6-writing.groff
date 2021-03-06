@@ -1,0 +1,110 @@
+\# Metadata
+.TITLE "Week's 6 Read/Writing"
+.SUBTITLE "Comparison and contrast"
+.AUTHOR "Jhonny Lanzuisi"
+.PDF_TITLE "Week's 6 Read/Writing"
+\# Page setup
+.PAPER A4
+.PRINTSTYLE TYPESET
+.L_MARGIN 10P
+.R_MARGIN 10P
+\# Basic typestting parameters
+.FAM N
+.PT_SIZE 10
+.LS 12.5
+.JUSTIFY
+.HY
+.HY LINES 2
+.KERN
+.LIG
+.IL 1P
+\# Footnote style
+.FOOTNOTE_FAMILY H
+\# Attribution string used in author
+.ATTRIBUTE_STRING "by"
+\# Title style
+.TITLE_FONT R
+.TITLE_SIZE +5
+.ATTRIBUTE_FONT R
+.AUTHOR_FONT R
+.SUBTITLE_FONT I
+
+.START
+.HEADING 1 "The ten sentences"
+.LIST DIGIT
+.ITEM
+One of my two dogs is more well behaved than the other one.
+.ITEM
+Out of all the bedrooms in my house, mine is the best.
+.ITEM
+The floor on my house is, in general, cleaner than the roof.
+.ITEM
+My mom's hair is longer than my dad's.
+.ITEM
+Of my two dogs, Orion has the darker hair color.
+.ITEM
+The garden outside is the greenest in the neiborghood.
+.ITEM
+Oriana has a computer that's faster and prettier than mine.
+.ITEM
+A kitchen fork has a pointier shape than a spoon.
+.ITEM
+A kitchen knife, on the other hand, has a shape pointier than a fork and is also sharper.
+.ITEM
+My boots are bigger than my sports shoes.
+.LIST END
+
+.HEADING 1 "Comparing two theorems"
+.TAB_SET 1 1P   5P  L
+.TAB_SET 2 15P  9P  L
+.TAB 1
+Pythagoras theorem\*[TB+]
+Pigeonhole theorem.
+.SP
+.TAB 1
+Deals with real numbers.\*[TB+]
+Is limited to integers.
+.SP 0.5P
+.TAB 1
+Is a result mainly from geometry.\*[TB+]
+Is a result from combinatorics.
+.SP 0.5P
+.TAB 1
+Dates from ancient Grecee.\*[TB+]
+Dates from the 17th Century.
+.TQ
+.NEWPAGE
+
+.PP
+.QUAD C
+.PT_SIZE +2
+.FT I
+License & colophon
+.FT R
+.SPACE 1
+.PT_SIZE
+.QUAD J
+This document was typeset using the groff typesetting system\c
+.FOOTNOTE
+If you're reading this in any format other than PDF or Postscript,
+then some sort of conversion software was used,
+and formatting error may exists.
+This is an unfortunate consequence of using non portable file types.
+.FOOTNOTE END
+ with the MOM macros in a GNU/Linux system.
+The editor used for editing the text was GNU Emacs.
+The main typeface is New Century Schoolbook set 10/12.5,
+accompanied by Helvetica for sans-serif and Courier for monospaced.
+.CITE
+.FAM H
+Copyright (C)  2021 Jhonny Lanzuisi.
+.BR
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license can be found at \c
+.FAM C
+https://www.gnu.org/licenses/fdl-1.3.en.html
+.FAM N
+.CITE OFF

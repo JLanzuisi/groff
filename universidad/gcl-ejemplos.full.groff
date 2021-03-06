@@ -1,0 +1,517 @@
+\# ----LICENSE---
+\# Copyright 2021 Jhonny Lanzuisi (jalb97@gmail.com)
+\# More source files at github.com/JLanzuisi
+\#
+\# This program is free software: you can redistribute it and/or modify
+\# it under the terms of the GNU General Public License as published by
+\# the Free Software Foundation, either version 3 of the License, or
+\# (at your option) any later version.
+\#
+\# This program is distributed in the hope that it will be useful,
+\# but WITHOUT ANY WARRANTY; without even the implied warranty of
+\# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+\# GNU General Public License for more details.
+\#
+\# You should have received a copy of the GNU General Public License
+\# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+\# --------------
+\# Page setup
+.PAPER A4
+.PRINTSTYLE TYPESET
+.L_MARGIN 10P
+.R_MARGIN 10P
+\# Basic typestting parameters
+.FAM P
+.PT_SIZE 10
+.LS 12.5
+.JUSTIFY
+.HY
+.KERN
+.LIG
+.IL 1P
+\# Footnote style
+.FOOTNOTE_FAMILY PZL
+\# Attribution string used in author
+.ATTRIBUTE_STRING "hecho por"
+\# Docheader control
+.DOCHEADER_QUAD C
+.TITLE_FONT R
+.TITLE_SIZE +5
+.ATTRIBUTE_FONT R
+.ATTRIBUTE_SPACE .7
+.AUTHOR_FONT R
+.SUBTITLE_FONT I
+\# Headings control
+.HEADING_STYLE 1 FONT R QUAD C CAPS SIZE +1.5
+.HEADING_STYLE 2 FONT R NUMBER SIZE +2
+.HEADING_STYLE 3 FONT R NUMBER
+\# Line number control
+.LINENUMBER_FAMILY GOM
+.LINENUMBER_SIZE -2
+\# Code control
+.CODE_SIZE 85
+.CODE_FAMILY GOM
+\# Custom macros
+.de CBLK
+.NUMBER_QUOTE_LINES
+.NUMBER_LINES 1
+.QUOTE_FAMILY GOM
+.QUOTE_SIZE -1
+.QUOTE_INDENT 0
+.QUOTE_FONT R
+.QUOTE
+..
+\#
+.de CBLKEND
+.QUOTE END
+.QUOTE_FAMILY P
+.QUOTE_INDENT 3
+.NUMBER_LINES OFF
+.NUMBER_QUOTE_LINES OFF
+..
+\#
+.de HEADONE
+.EW +0.8
+.HEADING 1 "\\$1"
+.EW
+..
+\#
+\# Metadata
+.TITLE "Algunos ejercicios en CGL"
+.SUBTITLE "la mayoría tomados de la guía o los laboratorios"
+.AUTHOR "Jhonny Lanzuisi"
+.PDF_TITLE "Algunos ejercicios en CGL"
+\#
+.START
+\#
+.HEADONE "Ejercicios de la guia"
+
+.HEADING 2 "Iteración en arreglos e invariantes"
+.PP
+El siguiente programa
+toma dos arreglos enteros
+unidimensionaless
+.CODE
+B,C
+.CODE OFF
+y los ordena de forma creciente en
+un tercer arreglo
+.CODE
+r
+.CODE OFF
+\&.
+.CBLK
+|[
+const N: int;
+const B array [0,...,N) of int;
+const C array [0,...,N) of int;
+var r array [0,...,2N) of int;
+
+var x,h,i = 0,0,0;
+
+{P1: N >= 0}
+
+{Inv1:
+  (∀ k: 0 <= k < i: r[k] = B[k])
+∧ (∀ i: i <= k < 2*i: r[k] = C[k-i])
+∧ 0 <= i <= N}
+{Cota t1: 2*N - i}
+
+{Catenate B and C}
+;do i != 2*N ->
+    if i < N ->
+        r[i] = B[i]
+    [] i >= N ->
+        r[i] = C[i-N]
+    fi
+    i = i+1
+
+{Q1:
+   (∀ i: 0 <= i < N: r[i] = B[i])
+∧ (∀ i: N <= i < 2*N: r[i] = C[i-N])}
+
+{P2 = Q1}
+{Cota2: 2*N-1 - x}
+{Inv2:
+(∀ k: 0 <= k < 2*x-1: r[k] <= r[k+1])
+∧ 0 <= x <= N}
+
+{Order pairwise}
+;do x != 2*N-1 ->
+    ;if r[x] > r[x+1]
+        h = r[x];
+        r[x] = r[x+1];
+        r[x+1] = h;
+        x = -1
+    [] r[x] <= r[x+1]
+        skip
+    fi
+    x = x+1
+
+{Q2:
+(∀ x: 0 <= x < 2*N-1: r[x] <= r[x+1])}
+]|
+.CBLKEND
+\#
+.HEADING 3 "Ahora en python"
+
+.HEADING 2 "Iteración en arreglos"
+.CBLK
+func bin_search(l: int; b: array [0,..,N) of int) -> int
+    {P:}
+    {Q: K = (+k : 0 <= k < N ∧ b[k]=l : 1)
+    ∧ K >= 0}
+    var x,y: int;
+    var K: int;
+
+    x,y = 0,N
+    K = 0
+
+    {Cota t1: y-x-1}
+    ;do x+1 != y ->
+        |[var h: int;
+            h := (x+y) div 2
+            ;if b[h] <= l -> x := h
+             [] b[h] > l -> y := h
+             fi
+        ]|
+     od
+
+    {Cota t2: N+x-y}
+    ;if b[x] == l ->
+        K := 1
+        while x >= 0 ∧ b[x] == b[x-1] ->
+            x := x-1
+            K = K+1
+     [] b[x] != l ->
+        skip
+
+    >>K
+.CBLKEND
+\#
+.HEADING 2 "Iteración en matrices. Matriz Pre-mágica"
+.PP
+Queremos determinar si una matriz es pre-mágica.
+Una matriz es pre-mágica si tiene la menos una fila y columna
+tales que la suma de sus elementos sea igual.
+.PP
+Para lograr esto, construiremos una función
+.CODE
+is_premagic
+.CODE OFF
+que recibirá una matriz y regresará una variable booleana
+que indicará si la matriz es, o no, pre-mágica.
+.PP
+Harán falta dos funciones más, muy parecidas,
+que sumen las entradas de una fila específica por un lado
+y las entradas de una columna por el otro.
+.CBLK
+|[
+proc sum_row(
+       Entrada r: int;
+       Entrada A: array [0,..,N)*[0,..,M) of int;
+       Salida rowsum: int;
+     )
+    {P: M >= 0 ∧ N >= 0 ∧ 0 <= r < N}
+    {Q: rowsum = (+j: 0 <= j < M: A[r,j])}
+    var j: int;
+    var rowsum: int;
+
+    j,rowsum := 0,0;
+
+    {Cota: M-j}
+    {Inv: rowsum = (+k: 0 <= k < j: A[r,k])
+          ∧ 0 <= j <= M}
+    ;do j != M ->
+        rowsum := rowsum + A[r,j];
+        j := j+1
+    od
+
+proc sum_col(
+       Entrada c: int;
+       Entrada A: array [0,..,N)*[0,..,M) of int;
+       Salida colsum: int;
+     )
+    {P: N >= 0 ∧ M >= 0 ∧ 0 <= c < M}
+    {Q: rowsum = (+i: 0 <= i < N: A[i,c])}
+    var i: int;
+    var colsum: int;
+
+    i,colsum := 0,0;
+
+    {Cota: N-i}
+    {Inv: colsum = (+k: 0 <= k < i: A[k,c])
+          ∧ 0 <= i <= N}
+    ;do i != N ->
+        colsum := colsum + A[i,c];
+        i := i+1
+    od
+
+func is_magic(A: array [0,..,N)*[0,..,M) of int) -> bool
+    {P: N >= 0 ∧ M >= 0}
+    {Q: ismagic = (∃ (i,j): 0 <= i < N ∧ 0 <= j < M
+                  ∧ sum_row(i,A,rw) = sum_col(j,A,cl))}
+    var i,j: int;
+    ismagic: bool;
+
+    i,j := 0,0
+    ismagic := false
+
+    {Cota 1: N-i}
+    ;do i != N ∧ ismagic = false ->
+        {Cota 2: M-j}
+        ;do j != M ∧ ismagic = false ->
+             sum_row(i,A,rw);
+             sum_col(j,A,cl)
+             ;if rw = cl ->
+                 ismagic = true
+              []  rw != cl ->
+                 skip
+              fi
+             j := j+1
+         od
+         i := i+1
+     od
+
+    >>ismagic
+]|
+.CBLKEND
+
+.HEADING 3 "Implementación de python"
+.PP
+Ahora el programa anterior, pero traducido a python
+para poder verificar que todo funciona como debería. a
+\#
+.CBLK
+def sum_row(r: int, A: list) -> int:
+    N = len(A)
+    M = len(A[0])
+
+    assert N >= 0 and M >= 0
+    assert 0 <= r < N
+
+    j,rowsum = 0,0
+
+    t = M - j # Cota
+    # Inv
+    assert (rowsum == sum(A[r][k] for k in range(0,j))
+            and 0 <= j <= M)
+
+    while j != M:
+        rowsum = rowsum + A[r][j]
+        j = j+1
+        # Inv
+        assert (rowsum == sum(A[r][k] for k in range(0,j))
+                and 0 <= j <= M)
+        # Cota
+        assert t > M-j
+        t = M-j
+        assert t >= 0
+
+    assert rowsum == sum(A[r][j] for j in range(0,M))
+
+    return rowsum
+# Test
+A = [
+    [1,2,3,4],
+    [0,3,-4,7]
+]
+sum_row(1,A)
+.CBLKEND
+\#
+.CBLK
+def sum_col(c: int, A: list) -> int:
+    N = len(A)
+    M = len(A[0])
+
+    assert N >= 0 and M >= 0
+    assert 0 <= c < M
+
+    i,colsum = 0,0
+
+    t = N - i # Cota
+    # Inv
+    assert (colsum == sum(A[k][c] for k in range(0,i))
+            and 0 <= i <= N)
+
+    while i != N:
+        colsum = colsum + A[i][c]
+        i = i+1
+        # Inv
+        assert (colsum == sum(A[k][c] for k in range(0,i))
+                and 0 <= i <= N)
+        # Cota
+        assert t > N-i
+        t = N-i
+        assert t >= 0
+
+    assert colsum == sum(A[i][c] for i in range(0,N))
+
+    return colsum
+# Test
+A = [
+    [1,2,3,4],
+    [0,3,-4,7]
+]
+sum_col(2,A)
+.CBLKEND
+\#
+.CBLK
+def is_magic(A: list) -> bool:
+    N = len(A)
+    M = len(A[0])
+
+    assert N >= 0 and M >= 0
+
+    i,j = 0,0
+    ismagic = False
+
+    t1 = N-i # Cota 1
+    t2 = M-j # Cota 2
+
+    while i != N and ismagic == False:
+        while j != M and ismagic == False:
+            if sum_row(i,A) == sum_col(j,A):
+                ismagic = True
+            j = j+1
+        i = i+1
+
+    return ismagic
+# Test
+A = [
+    [1,2,3,4],
+    [0,3,-4,7]
+]
+print(is_magic(A))
+.CBLKEND
+\#
+.HEADING 2 " Iteración en matrices. Filas Capicúa"
+.PP
+Primero definiremos un procedimiento \*[CODE]is_palin\*[CODE OFF]
+que chequea si una fila de una matriz es un palíndromo.
+Para esto hace una copia de la fila, pero en sentido contrario,
+y despues revisa si las dos filas (original y copia) son iguales.
+.PP
+Luego la función \*[CODE]palin_rows\*[CODE OFF]
+será la función que se encargará
+de contar las filas obtenidas anteriormente.
+.PP
+Para alterar las entradas no palíndromas de la matrix \*[CODE]A\*[CODE OFF]
+usaremos la función \*[CODE]non_palin_rows\*[CODE OFF].
+Hará falta la función \*[CODE]sum_rows\*[CODE OFF]
+del ejercicio anterior en las dos funciones anteriores.
+.CBLK
+|[
+proc is_palin(
+        Entrada r: int;
+        Entrada A: array [0,..,N)*[0,..,M) of int;
+        Salida isp: bool;
+        )
+    {P: N ≥ 0 ∧ M ≥ 0 ∧ 0 ≤ r ≤ N}
+
+    var B: array [0,..,M) of int;
+    var isp: bool;
+    var j: int;
+
+    isp := true
+    j := 0
+
+    ;do j != M ->
+        B[M-1 - j] := A[r,j]
+        j := j+1
+     od
+
+    j := 0
+    ;do j != M ->
+        if B[j] != A[r,j] ->
+            isp := false
+        [] B[j] = A[r,j] ->
+            skip
+        j := j+1
+     od
+
+func palin_rows(A: array [0,..,N)*[0,..,M) of int) -> int
+    {P: N ≥ 0 ∧ M ≥ 0}
+
+    var i: int;
+    var palinrows: int;
+    isp: bool;
+
+    i,palinrows := 0,0
+    isp := true
+
+    ;do i != N ->
+        is_palin(i,A,isp)
+        if isp = true ->
+            palinrows := palinrows+1
+        [] isp = false ->
+            skip
+        fi
+        i = i+1
+     od
+
+    >>palinrows
+
+func non_palin_rows(A: array [0,..,N)*[0,..,M) of int)
+        -> array [0,..,N)*[0,..,M) of int
+    {P: N ≥ 0 ∧ M ≥ 0}
+
+    var i,j,sumr: int;
+    var isp: bool;
+    var B: array [0,..,N)*[0,..,M) of int;
+
+    i,j,sumr := 0,0,0
+    isp := true
+
+    ;do i != N
+        is_palin(i,A,isp)
+        if isp = false ->
+            sum_rows(i,A,sumr)
+            do j != M ->
+                B[i,j] = sumr
+            od
+        [] isp = true ->
+            j := 0
+            do j != M ->
+                B[i,j] = A[i,j]
+            od
+        fi
+        i := i+1
+     od
+
+    >>B
+]|
+.CBLKEND
+\#
+.NEWPAGE
+.PP
+.HEADONE "License & colophon"
+.PP
+This document was typeset using \*[CODE]groff\*[CODE OFF]\c
+.FOOTNOTE
+\*[CODE]groff\*[CODE OFF] is the GNU version of the original
+\*[CODE]roff\*[CODE OFF] program from UNIX\[rg] at Bell Labs.
+\*[CODE]roff\*[CODE OFF] is a modified version of
+\*[CODE]RUNOFF\*[CODE OFF], which is considered the first
+text-formatting computer program,
+and was created for the CTSS.
+Currently, \*[CODE]groff\*[CODE OFF]
+is avialable in all major operating systems
+and comes preinstalled in most GNU/Linux and BSDs.
+.FOOTNOTE END
+\ with the mom macros in a UNIX\[rg] like operating system.
+The editor used for editing the text was \*[CODE]emacs\*[CODE OFF]\&.
+The main typeface is Palatino set 10/12.5,
+accompanied by Proza Libre for sans-serif and Courier for monospaced.
+.BLOCKQUOTE_AUTOLEAD 2
+.CITE
+Copyright (C)  2021 Jhonny Lanzuisi.
+.BR
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license can be found at
+\*[CODE]https://www.gnu.org/licenses/fdl-1.3.en.html\*[CODE OFF]
+.CITE OFF
+.TOC

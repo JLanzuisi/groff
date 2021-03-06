@@ -1,0 +1,67 @@
+\# Metadata
+.TITLE "Una prueba del sistema de tipografia groff"
+.SUBTITLE "Un primer documento, para ver como funciona"
+.AUTHOR "Jhonny Lanzuisi"
+.PDF_TITLE "A pdf by Jhonny Lanzuisi"
+.START
+\#
+.HEADING 1 "A nédlessly áon but instructive" "first level heading"
+.PP
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at venenatis dui. Fusce ut purus eget tellus ornare placerat. Mauris scelerisque tempor enim, sit amet sodales nisi lacinia eu. Integer volutpat purus quis enim condimentum, eu suscipit enim tempus. Quisque id tempus mi, et sagittis nisi. Aenean sit amet posuere nulla. Aenean vehicula porta eros non rhoncus. Nulla nec lorem magna. Proin quis gravida eros. Nam aliquam, dui id iaculis convallis, nibh purus euismod sapien, ut elementum ex urna id turpis. Vestibulum non lectus sollicitudin, convallis nulla eget, sollicitudin orci. Maecenas ornare rhoncus suscipit. Pellentesque commodo placerat ipsum id malesuada. Donec elementum, ex nec porta mollis, odio purus  rhoncus ipsum purus id ipsum. Fusce ut nisi in nibh ultrices facilisis.
+.FOOTNOTE
+Esto es una pruebita aa
+.FOOTNOTE END
+.HEADING 2 "A second level heading"
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at venenatis dui. Fusce ut purus eget tellus ornare placerat. Mauris scelerisque tempor enim, sit amet sodales nisi lacinia eu. Integer volutpat purus quis enim condimentum, eu suscipit enim tempus. Quisque id tempus mi, et sagittis nisi. Aenean sit amet posuere nulla. Aenean vehicula porta eros non rhoncus. Nulla nec lorem magna. Proin quis gravida eros.
+.HEADING 3 "A third level heading"
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at venenatis dui.
+.NEWPAGE
+.HEADING 1 "This is a new page, with a block quote"
+.PP
+Hola, asi se verian las citas en bloques: c\['a]tara
+.CITE
+Mom does her best to equalize whitespace around blockquotes and make sure the line following it falls on a valid baseline. On occasion, you may need to tweak the blockquote placement slightly
+.CITE END
+.HEADING 2 "Block quotes can contain code"
+.PP
+El siguiente e sun bloque de codigo:
+.CODE BR
+$ echo "Hello, world" | sed -e 's/Hello,/Goodbye, cruel/'
+.CODE END
+.PP
+Una prueba de como se ve el texto
+.FT I
+despues
+de un bloque de codigo.
+.FT R
+Esto deberia no ser cursiva.
+.HEADING 1 "Ecuaciones con eqn"
+.EQ
+delim $$
+.EN
+La siguient
+$f(x) = y$
+es una ecuacin en displa
+.EQ
+bold x = 2
+.EN
+Holaa
+.EQ
+{ partial f ( x ) } over { d x } <=
+lim from { N -> inf } sum from { x = 1 } to N alpha sub x times theta sup 3
+int from 0 to {x sup 2 / 4}
+.EN
+aaaaaaa
+.EQ
+( x, y, z ) = int from c to c+h x sup 2 over x sup 7 dx sqrt 2+4
+.EN
+aaaa
+.CBLK
+una
+prueba
+de los
+numeros de
+linea
+.CBLKEND
+.PP
+hola una aprueba

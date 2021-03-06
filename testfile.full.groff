@@ -1,0 +1,177 @@
+\# ----LICENSE---
+\# Copyright 2021 Jhonny Lanzuisi (jalb97@gmail.com)
+\# More source files at github.com/JLanzuisi
+\#
+\# This program is free software: you can redistribute it and/or modify
+\# it under the terms of the GNU General Public License as published by
+\# the Free Software Foundation, either version 3 of the License, or
+\# (at your option) any later version.
+\#
+\# This program is distributed in the hope that it will be useful,
+\# but WITHOUT ANY WARRANTY; without even the implied warranty of
+\# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+\# GNU General Public License for more details.
+\#
+\# You should have received a copy of the GNU General Public License
+\# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+\# --------------
+\# Page setup
+.PAPER A4
+.PRINTSTYLE TYPESET
+.L_MARGIN 10P
+.R_MARGIN 10P
+\# Basic typestting parameters
+.FAM T
+.PT_SIZE 11.5
+.LS 13.8
+.JUSTIFY
+.HY
+.KERN
+.LIG
+.IL 1P
+\# Footnote style
+.FOOTNOTE_FAMILY H
+\# Attribution string used in author
+.ATTRIBUTE_STRING "hecho por"
+\# Docheader control
+.DOCHEADER_QUAD C
+.TITLE_FONT R
+.TITLE_SIZE +5
+.ATTRIBUTE_FONT R
+.ATTRIBUTE_SPACE .7
+.AUTHOR_FONT R
+.SUBTITLE_FONT I
+\# Headings control
+.HEADING_STYLE 1 FONT R QUAD C CAPS SIZE +1.5
+.HEADING_STYLE 2 FONT R NUMBER SIZE +2
+.HEADING_STYLE 3 FONT R NUMBER
+\# Line number control
+.LINENUMBER_FAMILY GOM
+.LINENUMBER_SIZE -2
+\# Code control
+.CODE_SIZE 80
+.CODE_FAMILY GOM
+\# Custom macros
+.de CBLK
+.NUMBER_QUOTE_LINES
+.NUMBER_LINES 1
+.QUOTE_FAMILY GOM
+.QUOTE_SIZE -2
+.QUOTE_INDENT 0
+.QUOTE_FONT R
+.QUOTE
+..
+\#
+.de CBLKEND
+.QUOTE END
+.QUOTE_FAMILY T
+.QUOTE_INDENT 3
+.NUMBER_LINES OFF
+.NUMBER_QUOTE_LINES OFF
+..
+\#
+.de HEADONE
+.EW +0.8
+.HEADING 1 "\\$1"
+.EW
+..
+\#
+\# Metadata
+.TITLE "Una prueba del sistema de tipografia groff"
+.SUBTITLE "Un primer documento, para ver como funciona"
+.AUTHOR "Jhonny Lanzuisi"
+.PDF_TITLE "A pdf by Jhonny Lanzuisi"
+.START
+\#
+.HEADING 1 "A nédlessly áon but instructive" "first level heading"
+.PP
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at venenatis dui. Fusce ut purus eget tellus ornare placerat. Mauris scelerisque tempor enim, sit amet sodales nisi lacinia eu. Integer volutpat purus quis enim condimentum, eu suscipit enim tempus. Quisque id tempus mi, et sagittis nisi. Aenean sit amet posuere nulla. Aenean vehicula porta eros non rhoncus. Nulla nec lorem magna. Proin quis gravida eros. Nam aliquam, dui id iaculis convallis, nibh purus euismod sapien, ut elementum ex urna id turpis. Vestibulum non lectus sollicitudin, convallis nulla eget, sollicitudin orci. Maecenas ornare rhoncus suscipit. Pellentesque commodo placerat ipsum id malesuada. Donec elementum, ex nec porta mollis, odio purus  rhoncus ipsum purus id ipsum. Fusce ut nisi in nibh ultrices facilisis.
+.FOOTNOTE
+Esto es una pruebita aa
+.FOOTNOTE END
+.HEADING 2 "A second level heading"
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at venenatis dui. Fusce ut purus eget tellus ornare placerat. Mauris scelerisque tempor enim, sit amet sodales nisi lacinia eu. Integer volutpat purus quis enim condimentum, eu suscipit enim tempus. Quisque id tempus mi, et sagittis nisi. Aenean sit amet posuere nulla. Aenean vehicula porta eros non rhoncus. Nulla nec lorem magna. Proin quis gravida eros.
+.HEADING 3 "A third level heading"
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at venenatis dui.
+.NEWPAGE
+.HEADING 1 "This is a new page, with a block quote"
+.PP
+Hola, asi se verian las citas en bloques: c\['a]tara
+.CITE
+Mom does her best to equalize whitespace around blockquotes and make sure the line following it falls on a valid baseline. On occasion, you may need to tweak the blockquote placement slightly
+.CITE END
+.HEADING 2 "Block quotes can contain code"
+.PP
+El siguiente e sun bloque de codigo:
+.CODE BR
+$ echo "Hello, world" | sed -e 's/Hello,/Goodbye, cruel/'
+.CODE END
+.PP
+Una prueba de como se ve el texto
+.FT I
+despues
+de un bloque de codigo.
+.FT R
+Esto deberia no ser cursiva.
+.HEADING 1 "Ecuaciones con eqn"
+.EQ
+delim $$
+.EN
+La siguient
+$f(x) = y$
+es una ecuacin en displa
+.EQ
+bold x = 2
+.EN
+Holaa
+.EQ
+{ partial f ( x ) } over { d x } <=
+lim from { N -> inf } sum from { x = 1 } to N alpha sub x times theta sup 3
+int from 0 to {x sup 2 / 4}
+.EN
+aaaaaaa
+.EQ
+( x, y, z ) = int from c to c+h x sup 2 over x sup 7 dx sqrt 2+4
+.EN
+aaaa
+.CBLK
+una
+prueba
+de los
+numeros de
+linea
+.CBLKEND
+.PP
+hola una aprueba
+.NEWPAGE
+.PP
+.HEADONE "License & colophon"
+.PP
+This document was typeset using \*[CODE]groff\*[CODE OFF]\c
+.FOOTNOTE
+\*[CODE]groff\*[CODE OFF] is the GNU version of the original
+\*[CODE]roff\*[CODE OFF] program from UNIX\[rg] at Bell Labs.
+\*[CODE]roff\*[CODE OFF] is a modified version of
+\*[CODE]RUNOFF\*[CODE OFF], which is considered the first
+text-formatting computer program,
+and was created for the CTSS.
+Currently, \*[CODE]groff\*[CODE OFF]
+is avialable in all major operating systems
+and comes preinstalled in most GNU/Linux and BSDs.
+.FOOTNOTE END
+\ with the mom macros in a UNIX\[rg] like operating system.
+The editor used for editing the text was \*[CODE]emacs\*[CODE OFF]\&.
+The main typeface is Palatino set 10/12.5,
+accompanied by Proza Libre for sans-serif and Courier for monospaced.
+.BLOCKQUOTE_AUTOLEAD 2
+.CITE
+Copyright (C)  2021 Jhonny Lanzuisi.
+.BR
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license can be found at
+\*[CODE]https://www.gnu.org/licenses/fdl-1.3.en.html\*[CODE OFF]
+.CITE OFF
+.TOC
