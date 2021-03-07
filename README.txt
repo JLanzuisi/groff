@@ -12,7 +12,7 @@ DDEESSCCRRIIPPTTIIOONN
 
 FFIILLEESS
        preamble.groff
-              A  file that has all the macros I normally use, they usually de-
+              A  file that has all the macros I normally use, they usually de‐
               scribe formatting.  This file gets cat(tenated)  with  the  main
               file I write in, and the result is piped into groff.
 
@@ -29,8 +29,8 @@ BBUUIILLDDIINNGG
        wip
 
 OOTTHHEERR
-       If you are a TeX convert like me, check a tool on ctan  called  tex2re-
-       fer.  It's an awk script to convert your existing TeX .bib files to re-
+       If you are a TeX convert like me, check a tool on ctan  called  tex2re‐
+       fer.  It's an awk script to convert your existing TeX .bib files to re‐
        fer.
 
 
