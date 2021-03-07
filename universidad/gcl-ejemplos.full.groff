@@ -21,16 +21,17 @@
 .L_MARGIN 10P
 .R_MARGIN 10P
 \# Basic typestting parameters
-.FAM P
-.PT_SIZE 10
-.LS 12.5
+.FAM T
+.PT_SIZE 11.5
+.AUTOLEAD 1.2 FACTOR
 .JUSTIFY
 .HY
 .KERN
 .LIG
 .IL 1P
-\# Footnote style
-.FOOTNOTE_FAMILY PZL
+\# Footnote control
+.FOOTNOTE_FAMILY UNI
+\".FOOTNOTE_SIZE -3
 \# Attribution string used in author
 .ATTRIBUTE_STRING "hecho por"
 \# Docheader control
@@ -49,14 +50,14 @@
 .LINENUMBER_FAMILY GOM
 .LINENUMBER_SIZE -2
 \# Code control
-.CODE_SIZE 85
+.CODE_SIZE 80
 .CODE_FAMILY GOM
 \# Custom macros
 .de CBLK
 .NUMBER_QUOTE_LINES
 .NUMBER_LINES 1
 .QUOTE_FAMILY GOM
-.QUOTE_SIZE -1
+.QUOTE_SIZE -2
 .QUOTE_INDENT 0
 .QUOTE_FONT R
 .QUOTE
@@ -64,7 +65,7 @@
 \#
 .de CBLKEND
 .QUOTE END
-.QUOTE_FAMILY P
+.QUOTE_FAMILY T
 .QUOTE_INDENT 3
 .NUMBER_LINES OFF
 .NUMBER_QUOTE_LINES OFF
@@ -499,10 +500,10 @@ Currently, \*[CODE]groff\*[CODE OFF]
 is avialable in all major operating systems
 and comes preinstalled in most GNU/Linux and BSDs.
 .FOOTNOTE END
-\ with the mom macros in a UNIX\[rg] like operating system.
+\ with the MOM macros in a UNIX\[rg] like operating system.
 The editor used for editing the text was \*[CODE]emacs\*[CODE OFF]\&.
-The main typeface is Palatino set 10/12.5,
-accompanied by Proza Libre for sans-serif and Courier for monospaced.
+The main typeface is Times Roman set 11.5/13.8,
+accompanied by Universalis for sans-serif and Go Mono for monospaced.
 .BLOCKQUOTE_AUTOLEAD 2
 .CITE
 Copyright (C)  2021 Jhonny Lanzuisi.

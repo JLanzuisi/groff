@@ -14,7 +14,7 @@ Currently, \*[CODE]groff\*[CODE OFF]
 is avialable in all major operating systems
 and comes preinstalled in most GNU/Linux and BSDs.
 .FOOTNOTE END
-\ with the mom macros in a UNIX\[rg] like operating system.
+\ with the MOM macros in a UNIX\[rg] like operating system.
 The editor used for editing the text was \*[CODE]emacs\*[CODE OFF]\&.
 The main typeface is Times Roman set 11.5/13.8,
 accompanied by Universalis for sans-serif and Go Mono for monospaced.
@@ -29,4 +29,5 @@ with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 A copy of the license can be found at
 \*[CODE]https://www.gnu.org/licenses/fdl-1.3.en.html\*[CODE OFF]
 .CITE OFF
+.FINIS
 .TOC

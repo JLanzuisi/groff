@@ -1,0 +1,41 @@
+\# Metadata
+.TITLE "Week 7 read/writing"
+.SUBTITLE "Summarizing text"
+.AUTHOR "Jhonny Lanzuisi"
+.PDF_TITLE "Week 7 read/writing"
+\#
+.START
+.HEADONE "Questions & Answers"
+\#
+.HEADING 2 "Summarize the previous article."
+.PP
+The ACT/SAT's math sections consist of 60 questions
+taken from the areas listed below.
+.PP
+One doesn't get a formula cheatsheet while taking the exam,
+so memorizing certain key formulas is necessary.
+These formulas are the following, grouped by area:
+.LIST
+.ITEM
+Pre-algebra and Elementary algebra: Average, probability, quadratic formula.
+.ITEM
+Intermediate algebra and coordinate geometry: Distance formula, slope formula, slope intercept, midpoint formula.
+.ITEM
+Plane Geometry: Area of triangles, Pythagorean theorem, area of rectangle,
+area of parallelogram, area of circle, circumference of circle.
+.ITEM
+Trigonometry: Sine, cosine and tangent.
+.LIST OFF
+.HEADING 2 "What are the ACT / SATs? Use your own words."
+.PP
+They're college admission tests from the United States.
+Like the ones we used to have at Simon Bolivar University,
+they cover various important areas that a student must know
+to get into an university.
+.EQ
+delim $$
+.EN
+.HEADING 2 "Selected theorem"
+This is a simple theorem about continuous functions:
+if a function $f$ is continuous and it's graph stars below the horizontal axis
+and end above it, then it crosses the horizontal axis al least once.

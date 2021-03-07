@@ -18,8 +18,8 @@
 \# Page setup
 .PAPER A4
 .PRINTSTYLE TYPESET
-.L_MARGIN 10P
-.R_MARGIN 10P
+.L_MARGIN 9P
+.R_MARGIN 9P
 \# Basic typestting parameters
 .FAM T
 .PT_SIZE 11.5
@@ -78,22 +78,46 @@
 ..
 \#
 \# Metadata
-.TITLE "Una prueba del sistema de tipografia groff"
-.SUBTITLE "Un primer documento, para ver como funciona"
+.TITLE "Week 7 read/writing"
+.SUBTITLE "Summarizing text"
 .AUTHOR "Jhonny Lanzuisi"
-.PDF_TITLE "A pdf by Jhonny Lanzuisi"
-.START
+.PDF_TITLE "Week 7 read/writing"
 \#
-.HEADING 1 "A nédlessly áon but instructive" "first level heading"
+.START
+.HEADONE "Questions & Answers"
+\#
+.HEADING 2 "Summarize the previous article."
 .PP
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at venenatis dui. Fusce ut purus eget tellus ornare placerat. Mauris scelerisque tempor enim, sit amet sodales nisi lacinia eu. Integer volutpat purus quis enim condimentum, eu suscipit enim tempus. Quisque id tempus mi, et sagittis nisi. Aenean sit amet posuere nulla. Aenean vehicula porta eros non rhoncus. Nulla nec lorem magna. Proin quis gravida eros. Nam aliquam, dui id iaculis convallis, nibh purus euismod sapien, ut elementum ex urna id turpis. Vestibulum non lectus sollicitudin, convallis nulla eget, sollicitudin orci. Maecenas ornare rhoncus suscipit. Pellentesque commodo placerat ipsum id malesuada. Donec elementum, ex nec porta mollis, odio purus  rhoncus ipsum purus id ipsum. Fusce ut nisi in nibh ultrices facilisis.
-.FOOTNOTE
-Esto es una pruebita aa
-.FOOTNOTE END
-.HEADING 2 "A second level heading"
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at venenatis dui. Fusce ut purus eget tellus ornare placerat. Mauris scelerisque tempor enim, sit amet sodales nisi lacinia eu. Integer volutpat purus quis enim condimentum, eu suscipit enim tempus. Quisque id tempus mi, et sagittis nisi. Aenean sit amet posuere nulla. Aenean vehicula porta eros non rhoncus. Nulla nec lorem magna. Proin quis gravida eros.
-.HEADING 3 "A third level heading"
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at venenatis dui.
+The ACT/SAT's math sections consist of 60 questions
+taken from the areas listed below.
+.PP
+One doesn't get a formula cheatsheet while taking the exam,
+so memorizing certain key formulas is necessary.
+These formulas are the following, grouped by area:
+.LIST
+.ITEM
+Pre-algebra and Elementary algebra: Average, probability, quadratic formula.
+.ITEM
+Intermediate algebra and coordinate geometry: Distance formula, slope formula, slope intercept, midpoint formula.
+.ITEM
+Plane Geometry: Area of triangles, Pythagorean theorem, area of rectangle,
+area of parallelogram, area of circle, circumference of circle.
+.ITEM
+Trigonometry: Sine, cosine and tangent.
+.LIST OFF
+.HEADING 2 "What are the ACT / SATs? Use your own words."
+.PP
+They're college admission tests from the United States.
+Like the ones we used to have at Simon Bolivar University,
+they cover various important areas that a student must know
+to get into an university.
+.EQ
+delim $$
+.EN
+.HEADING 2 "Selected theorem"
+This is a simple theorem about continuous functions:
+if a function $f$ is continuous and it's graph stars below the horizontal axis
+and end above it, then it crosses the horizontal axis al least once.
 .NEWPAGE
 .PP
 .HEADONE "License & colophon"
@@ -125,4 +149,5 @@ with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 A copy of the license can be found at
 \*[CODE]https://www.gnu.org/licenses/fdl-1.3.en.html\*[CODE OFF]
 .CITE OFF
+.FINIS
 .TOC

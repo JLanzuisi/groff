@@ -1,4 +1,5 @@
 \# Metadata
+.PRINTSTYLE TYPESET
 .TITLE "Algunos ejercicios en CGL"
 .SUBTITLE "la mayoría tomados de la guía o los laboratorios"
 .AUTHOR "Jhonny Lanzuisi"
@@ -6,7 +7,7 @@
 \#
 .START
 \#
-.HEADONE "Ejercicios de la guia"
+.HEADING 1 "Ejercicios de la guia"
 
 .HEADING 2 "Iteración en arreglos e invariantes"
 .PP
@@ -22,7 +23,8 @@ un tercer arreglo
 r
 .CODE OFF
 \&.
-.CBLK
+.FAM C
+.CITE
 |[
 const N: int;
 const B array [0,...,N) of int;
@@ -73,12 +75,13 @@ var x,h,i = 0,0,0;
 {Q2:
 (∀ x: 0 <= x < 2*N-1: r[x] <= r[x+1])}
 ]|
-.CBLKEND
+.CITE OFF
+.FAM T
 \#
 .HEADING 3 "Ahora en python"
 
 .HEADING 2 "Iteración en arreglos"
-.CBLK
+.CITE
 func bin_search(l: int; b: array [0,..,N) of int) -> int
     {P:}
     {Q: K = (+k : 0 <= k < N ∧ b[k]=l : 1)
@@ -109,7 +112,7 @@ func bin_search(l: int; b: array [0,..,N) of int) -> int
         skip
 
     >>K
-.CBLKEND
+.CITE OFF
 \#
 .HEADING 2 "Iteración en matrices. Matriz Pre-mágica"
 .PP
