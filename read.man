@@ -1,11 +1,11 @@
 .TH groff-repo 1 2020
 .SH Name
 .PP
-groff-repo. This is a github repository where I mantain my groff files.
+groff-repo. This is a github repository where I mantain my groff(1) files.
 .SH
 Description
 .PP
-This repo holds all the files I write in groff.
+This repo holds all the files I write in groff(1).
 I'm still learning, so expect them to have errors.
 The main macro set used is MOM.
 There may be some ms or man macros.
@@ -17,7 +17,7 @@ preamble.groff
 A file that has all the macros I normally use, they usually describe
 formatting.
 This file gets cat(tenated) with the main file I write in,
-and the result is piped into groff.
+and the result is piped into groff(1).
 .TP
 postamble.groff
 Like the above, excepct for stuff I always want at the end.
@@ -25,12 +25,23 @@ Things like the .TOC macro or the license notice.
 .TP
 *.full.groff
 These hold the result of cat, see above.
-It is useful to have this in case I need to share the groff file,
+It is useful to have this in case I need to share the groff(1) file,
 this way I can send a complete file.
 .SH
 Building
 .PP
-wip
+I mostly generate pdfs. I've tried playing with grohtml(1),
+but it requires a bit of work before I can use it.
+For the pdfs, given that I use the MOM macros,
+I use the pdfmom(1) tool.
+.PP
+This tool comes with groff(1),
+and this in turn is included in almost all
+UNIX(R)-like operationg systems by default.
+.PP
+If you have other platform, like macOS or MS Windows,
+then look at the GNU groff website and see if there's
+either binaries or build instrutions available.
 .SH
 Other
 .PP
