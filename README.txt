@@ -6,13 +6,13 @@ Name
        groff-repo.  This  is  a  github repository where I mantain my groff(1)
        files.
 
-Description
+DESCRIPTION
        This repo holds all the files I write in groff(1).  I'm still learning,
        so  expect them to have errors.  The main macro set used is MOM.  There
        may be some ms or man macros.  The next section  lists  some  important
        files.
 
-Files
+FILES
        preamble.groff
               A  file that has all the macros I normally use, they usually de-
               scribe formatting.  This file gets cat(tenated)  with  the  main
@@ -27,7 +27,7 @@ Files
               this  in  case I need to share the groff(1) file, this way I can
               send a complete file.
 
-Building
+BUILDING
        I mostly generate pdfs. I've tried playing with grohtml(1), but it  re-
        quires  a  bit of work before I can use it.  For the pdfs, given that I
        use the MOM macros, I use the pdfmom(1) tool.
@@ -39,11 +39,11 @@ Building
        GNU groff website and see if there's either binaries or  build  instru-
        tions available.
 
-Other
+OTHER
        If  you  are a TeX convert like me, check a tool on ctan called tex2re-
        fer.  It's an awk script to convert your existing TeX .bib files to re-
        fer.
 
 
 
-                                     2020                        groff-repo(1)
+                                     2021                        groff-repo(1)

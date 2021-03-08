@@ -1,9 +1,9 @@
-.TH groff-repo 1 2020
+.TH groff-repo 1 2021
 .SH Name
 .PP
 groff-repo. This is a github repository where I mantain my groff(1) files.
 .SH
-Description
+DESCRIPTION
 .PP
 This repo holds all the files I write in groff(1).
 I'm still learning, so expect them to have errors.
@@ -11,7 +11,7 @@ The main macro set used is MOM.
 There may be some ms or man macros.
 The next section lists some important files.
 .SH
-Files
+FILES
 .TP
 preamble.groff
 A file that has all the macros I normally use, they usually describe
@@ -28,7 +28,7 @@ These hold the result of cat, see above.
 It is useful to have this in case I need to share the groff(1) file,
 this way I can send a complete file.
 .SH
-Building
+BUILDING
 .PP
 I mostly generate pdfs. I've tried playing with grohtml(1),
 but it requires a bit of work before I can use it.
@@ -43,7 +43,7 @@ If you have other platform, like macOS or MS Windows,
 then look at the GNU groff website and see if there's
 either binaries or build instrutions available.
 .SH
-Other
+OTHER
 .PP
 If you are a TeX convert like me, check a tool on ctan called tex2refer.
 It's an awk script to convert your existing TeX .bib files to refer.
